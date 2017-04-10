@@ -1,3 +1,11 @@
+<?php 
+
+$erro_usuario 	= isset($_GET['erro_usuario'])	? $_GET['erro_usuario'] 	: 0;
+$erro_email 	= isset($_GET['erro_email'])	? $_GET['erro_email']		: 0;
+
+?>
+
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -48,10 +56,28 @@
 				<form method="post" action="registra_usuario.php" id="formCadastrarse">
 					<div class="form-group">
 						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">
+						
+						<?php 
+						
+							if ($erro_usuario){ // 1 é true e 0 é false
+								echo '<font style="color:#FF0000"> Usuário já existe</font>';
+							}
+						
+						?>
+						
 					</div>
 
 					<div class="form-group">
 						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="requiored">
+						
+						<?php 
+						
+						if ($erro_email){ // 1 é true e 0 é false
+							echo '<font style="color:#FF0000"> Email já existe</font>';
+							}
+						
+						?>
+						
 					</div>
 					
 					<div class="form-group">
